@@ -32,9 +32,9 @@ type Response struct {
 }
 
 func main() {
-  dotEnvErr := godotenv.Load()
+  err := godotenv.Load()
 
-  if dotEnvErr != nil {
+  if err != nil {
     log.Fatal("Error loading .env file")
   }
 
@@ -65,25 +65,26 @@ func main() {
 	}
 
   //TODO check what is ncessary
-	req.Header.Set("Content-Type", "application/json")
-	req.Header.Set("Accept", "*/*")
-	req.Header.Set("Accept-Encoding", "gzip, deflate, br, zstd")
-	req.Header.Set("Accept-Language", "en-GB,en;q=0.9,en-US;q=0.8,cs;q=0.7")
-	req.Header.Set("Dnt", "1")
-	req.Header.Set("Origin", "https://www.pawshake.com.au")
-	req.Header.Set("Priority", "u=1, i")
-	req.Header.Set("Sec-Ch-Ua", `"Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"`)
-	req.Header.Set("Sec-Ch-Ua-Mobile", "?0")
-	req.Header.Set("Sec-Ch-Ua-Platform", `"macOS"`)
-	req.Header.Set("Sec-Fetch-Dest", "empty")
-	req.Header.Set("Sec-Fetch-Mode", "cors")
-	req.Header.Set("Sec-Fetch-Site", "cross-site")
-	req.Header.Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36")
-	req.Header.Set("X-Client-Version", "Chrome/JsCore/9.23.0/FirebaseCore-web")
-	req.Header.Set("X-Firebase-Gmpid", "1:100067502341:web:3e30142aa87eaa9c9e2f6c")
+	// req.Header.Set("Content-Type", "application/json")
+	// req.Header.Set("Accept", "*/*")
+	// req.Header.Set("Accept-Encoding", "gzip, deflate, br, zstd")
+	// req.Header.Set("Accept-Language", "en-GB,en;q=0.9,en-US;q=0.8,cs;q=0.7")
+	// req.Header.Set("Dnt", "1")
+	// req.Header.Set("Origin", "https://www.pawshake.com.au")
+	// req.Header.Set("Priority", "u=1, i")
+	// req.Header.Set("Sec-Ch-Ua", `"Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"`)
+	// req.Header.Set("Sec-Ch-Ua-Mobile", "?0")
+	// req.Header.Set("Sec-Ch-Ua-Platform", `"macOS"`)
+	// req.Header.Set("Sec-Fetch-Dest", "empty")
+	// req.Header.Set("Sec-Fetch-Mode", "cors")
+	// req.Header.Set("Sec-Fetch-Site", "cross-site")
+	// req.Header.Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36")
+	// req.Header.Set("X-Client-Version", "Chrome/JsCore/9.23.0/FirebaseCore-web")
+	// req.Header.Set("X-Firebase-Gmpid", "1:100067502341:web:3e30142aa87eaa9c9e2f6c")
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
+
 	if err != nil {
 		fmt.Println("Error making request:", err)
 		return
